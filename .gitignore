@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+backend/*.db
+*.db
+backend/uploads/
+backend/*_uploads/
+uploads/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+*.pyc
+.pytest_cache/
