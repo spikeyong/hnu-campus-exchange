@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T15:27:27.795755+00:00",
+  "title": "Design System: 海大互助 · Campus Exchange",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "displayName": "湖绿",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.0690 177.40)",
+          "oklch(26% 0.0690 177.40)",
+          "oklch(38% 0.0690 177.40)",
+          "oklch(49% 0.0690 177.40)",
+          "oklch(61% 0.0690 177.40)",
+          "oklch(72% 0.0690 177.40)",
+          "oklch(84% 0.0690 177.40)",
+          "oklch(95% 0.0690 177.40)"
+        ]
+      },
+      "primary-deep": {
+        "displayName": "深湖绿",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.0607 177.34)",
+          "oklch(26% 0.0607 177.34)",
+          "oklch(38% 0.0607 177.34)",
+          "oklch(49% 0.0607 177.34)",
+          "oklch(61% 0.0607 177.34)",
+          "oklch(72% 0.0607 177.34)",
+          "oklch(84% 0.0607 177.34)",
+          "oklch(95% 0.0607 177.34)"
+        ]
+      },
+      "ink": {
+        "displayName": "墨绿",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0422 192.93)",
+          "oklch(26% 0.0422 192.93)",
+          "oklch(38% 0.0422 192.93)",
+          "oklch(49% 0.0422 192.93)",
+          "oklch(61% 0.0422 192.93)",
+          "oklch(72% 0.0422 192.93)",
+          "oklch(84% 0.0422 192.93)",
+          "oklch(95% 0.0422 192.93)"
+        ]
+      },
+      "muted": {
+        "displayName": "灰绿",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0239 177.68)",
+          "oklch(26% 0.0239 177.68)",
+          "oklch(38% 0.0239 177.68)",
+          "oklch(49% 0.0239 177.68)",
+          "oklch(61% 0.0239 177.68)",
+          "oklch(72% 0.0239 177.68)",
+          "oklch(84% 0.0239 177.68)",
+          "oklch(95% 0.0239 177.68)"
+        ]
+      },
+      "canvas": {
+        "displayName": "浅纸底",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0067 115.70)",
+          "oklch(26% 0.0067 115.70)",
+          "oklch(38% 0.0067 115.70)",
+          "oklch(49% 0.0067 115.70)",
+          "oklch(61% 0.0067 115.70)",
+          "oklch(72% 0.0067 115.70)",
+          "oklch(84% 0.0067 115.70)",
+          "oklch(95% 0.0067 115.70)"
+        ]
+      },
+      "surface": {
+        "displayName": "暖白",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0067 97.35)",
+          "oklch(26% 0.0067 97.35)",
+          "oklch(38% 0.0067 97.35)",
+          "oklch(49% 0.0067 97.35)",
+          "oklch(61% 0.0067 97.35)",
+          "oklch(72% 0.0067 97.35)",
+          "oklch(84% 0.0067 97.35)",
+          "oklch(95% 0.0067 97.35)"
+        ]
+      },
+      "border": {
+        "displayName": "纸边灰绿",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0144 148.77)",
+          "oklch(26% 0.0144 148.77)",
+          "oklch(38% 0.0144 148.77)",
+          "oklch(49% 0.0144 148.77)",
+          "oklch(61% 0.0144 148.77)",
+          "oklch(72% 0.0144 148.77)",
+          "oklch(84% 0.0144 148.77)",
+          "oklch(95% 0.0144 148.77)"
+        ]
+      },
+      "warm": {
+        "displayName": "奶油白",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0220 89.79)",
+          "oklch(26% 0.0220 89.79)",
+          "oklch(38% 0.0220 89.79)",
+          "oklch(49% 0.0220 89.79)",
+          "oklch(61% 0.0220 89.79)",
+          "oklch(72% 0.0220 89.79)",
+          "oklch(84% 0.0220 89.79)",
+          "oklch(95% 0.0220 89.79)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "首页识别字",
+        "purpose": "只记录既有 EXCHANGE 大字的字体栈与尺寸。"
+      },
+      "headline": {
+        "displayName": "工作页标题",
+        "purpose": "功能页的主要标题。"
+      },
+      "title": {
+        "displayName": "列表标题",
+        "purpose": "资源及技能条目的标题。"
+      },
+      "body": {
+        "displayName": "中文正文",
+        "purpose": "沿用现有界面字体回退栈。"
+      },
+      "label": {
+        "displayName": "操作文字",
+        "purpose": "主要按钮的紧凑文字。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "menu",
+        "value": "0 14px 40px rgb(18 62 65 / 8%)",
+        "purpose": "账户菜单与移动导航。"
+      },
+      {
+        "name": "dialog",
+        "value": "0 24px 80px rgb(9 35 30 / 22%)",
+        "purpose": "弹窗相对遮罩的层次。"
+      },
+      {
+        "name": "home-action",
+        "value": "0 8px 24px rgb(10 39 30 / 14%)",
+        "purpose": "水彩首页奶油白主按钮。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "control",
+        "value": "160ms ease",
+        "purpose": "按钮背景、边框与文字状态。"
+      },
+      {
+        "name": "page-opacity",
+        "value": "120ms ease",
+        "purpose": "页面切换透明度。"
+      },
+      {
+        "name": "page-transform",
+        "value": "160ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "页面进入时的 5px 轻微位移。"
+      },
+      {
+        "name": "campus-trees",
+        "value": "800ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "树木分层的一次性进入；减少动态时禁用。"
+      },
+      {
+        "name": "campus-background",
+        "value": "900ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "背景分层从 .88 透明度进入；减少动态时禁用。"
+      },
+      {
+        "name": "campus-building",
+        "value": "1000ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "建筑分层的一次性进入；减少动态时禁用。"
+      },
+      {
+        "name": "campus-lake",
+        "value": "1100ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "湖面分层的一次性进入；减少动态时禁用。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "header-compact",
+        "value": "1150px"
+      },
+      {
+        "name": "board-single-column",
+        "value": "1120px"
+      },
+      {
+        "name": "mobile-menu",
+        "value": "800px"
+      },
+      {
+        "name": "compact-phone",
+        "value": "460px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "湖绿主按钮",
+      "kind": "button",
+      "description": "工作界面的主要操作，以深湖绿悬停反馈。",
+      "html": "<button class=\"ds-primary\">发布资源</button>",
+      "css": ".ds-primary{font-family:'Aptos','Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;min-height:40px;padding:9px 14px;border:1px solid transparent;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease;}.ds-primary:focus-visible{outline:3px solid #ba8a30;outline-offset:3px;}.ds-primary:disabled{opacity:.5;cursor:not-allowed;}.ds-primary{background:var(--teal,#226356);border-color:var(--teal,#226356);color:#fff}.ds-primary:hover{background:var(--teal-dark,#174f44);border-color:var(--teal-dark,#174f44)}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "描边次按钮",
+      "kind": "button",
+      "description": "与主操作并列的次要动作。",
+      "html": "<button class=\"ds-outline\">查看详情</button>",
+      "css": ".ds-outline{font-family:'Aptos','Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;min-height:40px;padding:9px 14px;border:1px solid transparent;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease;}.ds-outline:focus-visible{outline:3px solid #ba8a30;outline-offset:3px;}.ds-outline:disabled{opacity:.5;cursor:not-allowed;}.ds-outline{background:var(--layer,#fffef9);border-color:var(--line,#dce5dd);color:var(--ink,#183d3c)}.ds-outline:hover{background:var(--teal-soft,#eaf2e9);border-color:var(--teal,#226356);color:var(--teal-dark,#174f44)}",
+      "refersTo": "button-outline"
+    },
+    {
+      "name": "首页奶油白按钮",
+      "kind": "button",
+      "description": "水彩画面上的主要入口，使用反转浅底。",
+      "html": "<button class=\"ds-home-primary\">进入互助广场<svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-home-primary{font-family:'Aptos','Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:27px;min-height:52px;padding:14px 27px;border:1px solid #fff9e9;border-radius:99px;background:#fff9e9;color:#193f35;font-size:15px;font-weight:650;box-shadow:0 8px 24px rgb(10 39 30 / 14%);cursor:pointer;transition:background-color 160ms ease,border-color 160ms ease}.ds-home-primary:hover{background:#e8efdc;border-color:#e8efdc}.ds-home-primary:focus-visible{outline:3px solid #ba8a30;outline-offset:3px;}@media(max-width:800px){.ds-home-primary{min-height:48px;gap:14px;padding:12px 20px;font-size:13px}}",
+      "refersTo": "button-home-primary"
+    },
+    {
+      "name": "首页透明次按钮",
+      "kind": "button",
+      "description": "水彩首页的分享操作，保留浅色描边。",
+      "html": "<button class=\"ds-home-secondary\">我也想分享<svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14 M5 12h14\"/></svg></button>",
+      "css": ".ds-home-secondary{font-family:'Aptos','Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:14px 27px;border:1px solid rgb(255 249 233 / 65%);border-radius:99px;background:rgb(18 62 65 / 25%);color:#fff9e9;font-size:15px;font-weight:650;cursor:pointer;transition:background-color 160ms ease,border-color 160ms ease}.ds-home-secondary:hover{border-color:#fff9e9;background:rgb(18 62 65 / 70%)}.ds-home-secondary:focus-visible{outline:3px solid #ba8a30;outline-offset:3px;}@media(max-width:800px){.ds-home-secondary{min-height:48px;padding:12px 20px;font-size:13px}}"
+    },
+    {
+      "name": "表单输入框",
+      "kind": "input",
+      "description": "弹窗及认证表单共用的浅底输入框。",
+      "html": "<label class=\"ds-field-label\">资源标题<input class=\"ds-field\" placeholder=\"输入资源标题\" /></label>",
+      "css": ".ds-field-label{font-family:'Aptos','Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;display:block;color:#35443f;font-size:11px;font-weight:700}.ds-field{font-family:'Aptos','Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;display:block;box-sizing:border-box;width:100%;min-width:0;min-height:42px;margin-top:6px;padding:9px 10px;border:1px solid var(--line,#dce5dd);border-radius:9px;background:#f5f7ef;color:var(--ink,#183d3c);caret-color:var(--teal,#226356)}.ds-field:focus{border-color:#75956a;background:#fff}.ds-field:focus-visible{outline:3px solid #ba8a30;outline-offset:3px;}@media(max-width:800px){.ds-field{font-size:16px}}",
+      "refersTo": "input"
+    },
+    {
+      "name": "胶囊主导航",
+      "kind": "nav",
+      "description": "桌面使用胶囊分组；移动端此面板由菜单按钮展开。",
+      "html": "<nav class=\"ds-nav\" aria-label=\"主导航\"><button class=\"ds-nav-active\" aria-current=\"page\">首页</button><button>互助广场</button><button>资源置换</button><button>技能互助</button></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:center;gap:3px;padding:5px;border:1px solid #e5e9df;border-radius:99px;background:#f1f3eb}.ds-nav button{font-family:'Aptos','Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;min-height:38px;padding:8px 15px;border:0;border-radius:99px;background:transparent;color:#4e6961;font-size:13px;white-space:nowrap;cursor:pointer;transition:background-color 160ms ease,color 160ms ease}.ds-nav button:hover{background:#e0e9dc;color:var(--ink,#183d3c)}.ds-nav button.ds-nav-active{background:var(--nav,#143f3f);color:#fffef4}.ds-nav button:focus-visible{outline:3px solid #ba8a30;outline-offset:3px;}@media(max-width:800px){.ds-nav{display:grid;grid-template-columns:1fr 1fr;gap:6px;border-radius:14px;background:var(--layer,#fffef9)}.ds-nav button{min-height:43px;border-radius:8px}}"
+    },
+    {
+      "name": "分类筛选胶囊",
+      "kind": "chip",
+      "description": "用于广场的实际分类与场景筛选。",
+      "html": "<div class=\"ds-chips\" aria-label=\"资源分类\"><button class=\"ds-chip-selected\" aria-pressed=\"true\">全部</button><button aria-pressed=\"false\">教材</button><button aria-pressed=\"false\">数码</button></div>",
+      "css": ".ds-chips{display:flex;gap:7px}.ds-chips button{font-family:'Aptos','Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;min-height:32px;padding:5px 11px;border:1px solid transparent;border-radius:999px;background:#eaf0e5;color:#4c665b;font-size:11px;cursor:pointer;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease}.ds-chips button:hover,.ds-chips button.ds-chip-selected{border-color:#aac3a8;background:#ddebd6;color:var(--teal-dark,#174f44)}.ds-chips button.ds-chip-selected{font-weight:800}.ds-chips button:focus-visible{outline:3px solid #ba8a30;outline-offset:3px;}"
+    },
+    {
+      "name": "广场内容容器",
+      "kind": "card",
+      "description": "暖白、细边框、平面列表容器；示例仅展示容器的排版与材料。",
+      "html": "<section class=\"ds-lane\"><header><h2>资源置换</h2></header><article class=\"ds-lane-item\"><h3>校园教材</h3><p>让用过的好东西，开启下一段校园生活。</p></article></section>",
+      "css": ".ds-lane{font-family:'Aptos','Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;overflow:hidden;border:1px solid var(--line,#dce5dd);border-radius:14px;background:var(--layer,#fffef9);color:var(--ink,#183d3c)}.ds-lane header{display:flex;align-items:center;min-height:73px;padding:14px 16px;border-bottom:1px solid var(--line,#dce5dd);background:#fbfcf5}.ds-lane h2{margin:0;font-size:17px}.ds-lane-item{padding:15px;transition:background-color 160ms ease}.ds-lane-item:hover{background:#f6f9ef}.ds-lane h3{margin:10px 0 5px;font-size:15px}.ds-lane p{margin:0;color:#59695e;font-size:12px;line-height:1.6}",
+      "refersTo": "card"
+    },
+    {
+      "name": "三段登录选择器",
+      "kind": "custom",
+      "description": "实际登录流程的三列等宽选项，不能沿用旧双列布局。",
+      "html": "<div class=\"ds-auth-segments\" role=\"group\" aria-label=\"登录方式\"><button class=\"ds-auth-selected\" aria-pressed=\"true\">手机登录</button><button aria-pressed=\"false\">手机号注册</button><button aria-pressed=\"false\">管理员登录</button></div>",
+      "css": ".ds-auth-segments{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:24px;padding:3px;border-radius:9px;background:#eef3e8}.ds-auth-segments button{font-family:'Aptos','Segoe UI','Noto Sans SC','Microsoft YaHei',sans-serif;min-width:0;height:38px;padding-inline:4px;border:0;border-radius:6px;background:transparent;color:var(--muted,#60736e);font-size:12px;cursor:pointer;transition:background-color 160ms ease,color 160ms ease}.ds-auth-segments button:hover{background:var(--teal-soft,#eaf2e9)}.ds-auth-segments button.ds-auth-selected{background:var(--teal,#226356);color:#fff;font-weight:800;box-shadow:0 1px 3px rgba(15,36,30,.12)}.ds-auth-segments button:focus-visible{outline:3px solid #ba8a30;outline-offset:3px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "湖畔的分享入口",
+    "overview": "首页以用户提供的水彩校园为视觉锚点：湖面、亭台、树木与塔楼共用一个坐标系，奶油白 EXCHANGE 大字保持醒目。进入功能页后，画面的湖绿与暖纸色转化为清晰、紧凑的操作界面。\n\n工作界面以内容、状态和操作为中心；圆润控件、细边框和克制的阴影延续首页的温度。沿用现有字体栈与本地图片，不引入新的字体或组件库。",
+    "keyCharacteristics": [
+      "原图水彩校园与大幅奶油白标题。",
+      "湖绿主操作、暖白表面、低对比细边框。",
+      "胶囊导航、紧凑列表、短促切换与减少动态支持。"
+    ],
+    "rules": [
+      {
+        "name": "The Theme Authority Rule",
+        "body": "`frontend/src/exchange-theme.css` 是本次视觉适配的最终覆盖层，必须在继承的 `style.css` 后加载。历史 `--coral`、`--coral-dark` 别名现已映射到湖绿体系，不代表珊瑚色品牌。",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "**Do** 保留首页原有水彩层与 EXCHANGE 字样的识别关系，并用浅底保证品牌文字可读。",
+      "**Do** 让新工作页面沿用湖绿操作、暖白表面、细边框与紧凑信息密度。",
+      "**Do** 同时保留键盘焦点、移动导航和减少动态体验。",
+      "**Do** 以最终主题覆盖层和实际功能组件为设计依据。"
+    ],
+    "donts": [
+      "**Don't** 从历史 `--coral` 命名恢复旧珊瑚主色，或让旧样式覆盖最终主题。",
+      "**Don't** 把首页的水彩进入动画扩展为持续滚动视差或工作列表的整体抬升。",
+      "**Don't** 把继承代码中的零散字形图标或旧式装饰标签当作新组件规范。"
+    ]
+  }
+}

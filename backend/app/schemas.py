@@ -144,6 +144,7 @@ class ListingOut(ListingCreate):
     status: str
     created_at: datetime
     owner_name: str | None = None
+    owner_credit_score: int | None = None
     category_name: str | None = None
     image_urls: list[str] = Field(default_factory=list)
 

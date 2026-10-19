@@ -1,0 +1,26 @@
+[
+  {
+    "file": "campus-background.webp",
+    "source": "exchage/ExploreScape-Travel-website-main/img/bac 4.png",
+    "operation": "Resize to shared 1920x1080 canvas and encode WebP; preserve transparent layers.",
+    "bytes": 401946
+  },
+  {
+    "file": "campus-lake.webp",
+    "source": "exchage/ExploreScape-Travel-website-main/img/bac 3.png",
+    "operation": "Resize to shared 1920x1080 canvas and encode WebP; preserve transparent layers.",
+    "bytes": 217974
+  },
+  {
+    "file": "campus-building.webp",
+    "source": "exchage/ExploreScape-Travel-website-main/img/bac 2.2.png",
+    "operation": "Resize to shared 1920x1080 canvas and encode WebP; preserve transparent layers.",
+    "bytes": 100324
+  },
+  {
+    "file": "campus-trees.webp",
+    "source": "exchage/ExploreScape-Travel-website-main/img/bac 1.png",
+    "operation": "Resize to shared 1920x1080 canvas and encode WebP; preserve transparent layers.",
+    "bytes": 236740
+  }
+]

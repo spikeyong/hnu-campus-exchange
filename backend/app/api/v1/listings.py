@@ -32,6 +32,7 @@ def listing_out(item: Listing) -> ListingOut:
         status=item.status,
         created_at=item.created_at,
         owner_name=item.owner.name if item.owner else None,
+        owner_credit_score=item.owner.credit_score if item.owner else None,
         category_name=item.category.name if item.category else None,
         image_urls=[f"/uploads/{image.storage_key}" for image in item.images],
     )

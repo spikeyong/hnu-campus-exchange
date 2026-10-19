@@ -1,6 +1,6 @@
 # 项目上下文（新对话入口）
 
-更新时间：2026-09-23
+更新时间：2026-10-18
 
 ## 1. 项目定位
 
@@ -42,7 +42,7 @@
 
 ## 4. 技术栈与实际工程状态
 
-前端当前实际使用 Vue 3、Vite 和 Axios，主要界面集中在 `frontend/src/App.vue` 与 `frontend/src/style.css`。文档规划了 TypeScript、Vue Router、Pinia 和 Element Plus，但当前代码尚未真正使用这些库，不要误判为已经完成。
+前端当前实际使用 Vue 3、Vite 和 Axios，业务界面沿用 `frontend/src/App.vue` 与 `frontend/src/style.css`；首页在 `frontend/src/components/ExchangeHome.vue`，最新统一主题由 `frontend/src/exchange-theme.css` 覆盖。文档规划了 TypeScript、Vue Router、Pinia 和 Element Plus，但当前代码尚未真正使用这些库，不要误判为已经完成。
 
 后端使用 Python、FastAPI、SQLAlchemy 2、Pydantic、Alembic、JWT、Argon2 和 AES-GCM。开发数据库为 SQLite，Docker Compose 部署切换到 MySQL 8，Nginx 提供入口。
 
@@ -103,3 +103,12 @@
 ## 8. 新对话建议开场词
 
 请先完整读取 `CLAUDE.md`、`PROJECT_CONTEXT.md`、`progress.txt`、`lessons.md` 以及相关产品文档，再检查当前代码状态。使用 `sketch`、`popular-web-designs` 和 `claude-design` 三个 skills，为海南大学校园资源置换与技能互助平台提出 2-3 个适合操作型校园平台的界面方向；先展示和比较方案，不要立即改业务代码。设计必须保留现有交易闭环、手机号验证与人工学生认证，不得把手机号描述为学生身份证明。
+
+## 9. 2026-10-18 首页整合
+
+- 用户指定桌面 `hnu-campus-exchange-main (1)` 为主项目，将桌面实际名为 `exchage` 的 EXCHANGE 页面作为首页，并授权调整整体 UI 与交互。
+- 默认首页为 `#home`；全部、资源、技能入口为 `#discover` 与 `?type=resource|skill`，对应后端已有的 type 查询。
+- 删除源模板中无实际功能的 Reviews、Gallery、Contacts 和轮播箭头。学生个人功能放在账号菜单，管理员只保留其实际工作台与公开浏览入口。
+- 资源与技能页面从原来的大幅介绍改为紧凑标题和筛选区；整体湖绿、暖白风格与原水彩首页协调。
+- 本次只修改前端及相关文档，不新增后端业务、依赖、数据库结构或官方身份/支付能力。
+- `PRODUCT.md` 记录实际能力；`DESIGN.md` 记录当前主题。旧文档中的规划功能不构成添加入口的依据。
