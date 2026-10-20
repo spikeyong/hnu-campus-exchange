@@ -148,6 +148,8 @@ def login(payload: LoginInput, db: Session = Depends(get_db)):
     user = db.scalar(select(User).where(User.username == identifier, User.role == "admin"))
     if not user or not verify_password(payload.password, user.password_hash):
         raise HTTPException(status_code=401, detail="管理员账号或密码错误")
+    if user.status != "active":
+        raise HTTPException(status_code=403, detail="账号已被禁用，请联系平台管理员")
     return TokenOut(access_token=create_access_token(user.id, user.role), user=user)
 
 
@@ -157,6 +159,8 @@ def login_with_sms(payload: SmsLoginInput, db: Session = Depends(get_db)):
     user = db.scalar(select(User).where(User.phone_hash == phone_hash))
     if not user:
         raise HTTPException(status_code=401, detail="手机号或验证码错误")
+    if user.status != "active":
+        raise HTTPException(status_code=403, detail="账号已被禁用，请联系平台管理员")
     code_record = db.scalar(
         select(SmsCode)
         .where(

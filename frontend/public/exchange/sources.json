@@ -22,5 +22,23 @@
     "source": "exchage/ExploreScape-Travel-website-main/img/bac 1.png",
     "operation": "Resize to shared 1920x1080 canvas and encode WebP; preserve transparent layers.",
     "bytes": 236740
+  },
+  {
+    "file": "scenes/scene-*.jpg",
+    "source": "课程素材：六张校园水彩插画（湖心亭 / 白楼树影 / 钟楼棕榈 / 草坪钟楼 / 花树钟楼 / 湖畔倒影）",
+    "operation": "Resize to 1600x1600, Gaussian blur radius 3.2 (gentle depth of field, landmarks stay recognisable), colour 0.97, contrast 0.98, JPEG quality 88 progressive.",
+    "bytes": 250000
+  },
+  {
+    "file": "scenes/hero/*.jpg",
+    "source": "同上六张插画，供互助广场主视觉使用",
+    "operation": "1200x1200, Gaussian blur radius 0.8, JPEG quality 82 (the hero has its own cream scrim).",
+    "bytes": 250000
+  },
+  {
+    "file": "scenes/thumbs/*.jpg",
+    "source": "同上六张插画，供个人设置的背景选择器使用",
+    "operation": "560x560, Gaussian blur radius 0.6, JPEG quality 80.",
+    "bytes": 65000
   }
 ]

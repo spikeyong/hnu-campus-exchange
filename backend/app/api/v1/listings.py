@@ -30,6 +30,8 @@ def listing_out(item: Listing) -> ListingOut:
         condition_level=item.condition_level,
         expected_exchange=item.expected_exchange,
         status=item.status,
+        is_featured=item.is_featured,
+        featured_at=item.featured_at,
         created_at=item.created_at,
         owner_name=item.owner.name if item.owner else None,
         owner_credit_score=item.owner.credit_score if item.owner else None,
@@ -40,7 +42,7 @@ def listing_out(item: Listing) -> ListingOut:
 
 @router.get("/categories", response_model=list[CategoryOut])
 def categories(db: Session = Depends(get_db)):
-    return list(db.scalars(select(Category).where(Category.is_active.is_(True)).order_by(Category.id)))
+    return list(db.scalars(select(Category).where(Category.is_active.is_(True)).order_by(Category.sort_order, Category.id)))
 
 
 @router.get("", response_model=ListingPage)

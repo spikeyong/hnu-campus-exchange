@@ -375,3 +375,130 @@ def test_verified_students_can_complete_two_party_transaction(client: TestClient
         headers=admin_headers,
         json={"resolution": "已核查，无违规", "score_delta": 0},
     ).status_code == 200
+
+
+def test_admin_governance_flow(client: TestClient):
+    admin_headers = auth_headers(client, "admin", "Admin123!")
+    seller = register_phone(client, "13800000021", "Admin Seller")
+    seller_headers = {"Authorization": f"Bearer {seller['access_token']}"}
+    seller_id = seller["user"]["id"]
+    verification_id = submit_verification(client, seller_headers, "2024000021")
+    approve_verification(client, admin_headers, verification_id)
+
+    listing_response = client.post(
+        "/api/v1/listings",
+        headers=seller_headers,
+        json={
+            "type": "resource",
+            "category_id": 1,
+            "title": "Admin governance listing",
+            "description": "Used to verify featured and moderation actions.",
+            "price": 12,
+        },
+    )
+    assert listing_response.status_code == 201, listing_response.text
+    listing = listing_response.json()
+    listing_id = listing["id"]
+
+    stats = client.get("/api/v1/admin/stats", headers=admin_headers)
+    assert stats.status_code == 200, stats.text
+    assert stats.json()["listings_published"] == 1
+
+    content = client.get("/api/v1/admin/listings", headers=admin_headers)
+    assert content.status_code == 200, content.text
+    assert content.json()["items"][0]["title"] == "Admin governance listing"
+
+    featured = client.post(
+        f"/api/v1/admin/listings/{listing_id}/feature",
+        headers=admin_headers,
+        json={"reason": "Useful campus guide"},
+    )
+    assert featured.status_code == 200, featured.text
+    assert featured.json()["is_featured"] is True
+    assert client.get("/api/v1/listings").json()["items"][0]["is_featured"] is True
+
+    offline = client.post(
+        f"/api/v1/admin/listings/{listing_id}/status",
+        headers=admin_headers,
+        json={"status": "offline", "reason": "Verify moderation"},
+    )
+    assert offline.status_code == 200, offline.text
+    assert offline.json()["status"] == "offline"
+    assert offline.json()["is_featured"] is False
+    restored = client.post(
+        f"/api/v1/admin/listings/{listing_id}/status",
+        headers=admin_headers,
+        json={"status": "published", "reason": "Verification complete"},
+    )
+    assert restored.status_code == 200, restored.text
+    assert restored.json()["status"] == "published"
+
+    users = client.get("/api/v1/admin/users", headers=admin_headers, params={"q": "Admin Seller"})
+    assert users.status_code == 200, users.text
+    assert users.json()["items"][0]["id"] == seller_id
+    detail = client.get(f"/api/v1/admin/users/{seller_id}", headers=admin_headers)
+    assert detail.status_code == 200, detail.text
+    assert detail.json()["listing_count"] == 1
+
+    disabled = client.post(
+        f"/api/v1/admin/users/{seller_id}/disable",
+        headers=admin_headers,
+        json={"reason": "Policy check", "offline_listings": True},
+    )
+    assert disabled.status_code == 200, disabled.text
+    assert disabled.json()["status"] == "disabled"
+    assert client.get("/api/v1/auth/me", headers=seller_headers).status_code == 401
+    enabled = client.post(
+        f"/api/v1/admin/users/{seller_id}/enable",
+        headers=admin_headers,
+        json={"reason": "Policy check complete"},
+    )
+    assert enabled.status_code == 200, enabled.text
+    assert client.get("/api/v1/auth/me", headers=seller_headers).status_code == 200
+
+    category = client.post(
+        "/api/v1/admin/categories",
+        headers=admin_headers,
+        json={"name": "Admin Test Category", "listing_type": "resource", "sort_order": 44},
+    )
+    assert category.status_code == 200, category.text
+    category_id = category.json()["id"]
+    updated_category = client.patch(
+        f"/api/v1/admin/categories/{category_id}",
+        headers=admin_headers,
+        json={"is_active": False},
+    )
+    assert updated_category.status_code == 200, updated_category.text
+    public_categories = client.get("/api/v1/listings/categories").json()
+    assert all(item["id"] != category_id for item in public_categories)
+
+    reporter = register_phone(client, "13800000022", "Admin Reporter")
+    reporter_headers = {"Authorization": f"Bearer {reporter['access_token']}"}
+    report = client.post(
+        "/api/v1/reports",
+        headers=reporter_headers,
+        json={
+            "target_type": "listing",
+            "target_id": listing_id,
+            "reason": "Admin review",
+            "description": "Please verify this listing.",
+        },
+    )
+    assert report.status_code == 201, report.text
+    report_id = report.json()["id"]
+    report_detail = client.get(f"/api/v1/admin/reports/{report_id}", headers=admin_headers)
+    assert report_detail.status_code == 200, report_detail.text
+    assert report_detail.json()["target_label"] == "Admin governance listing"
+    assert report_detail.json()["reporter_name"] == "Admin Reporter"
+    resolved = client.post(
+        f"/api/v1/admin/reports/{report_id}/resolve",
+        headers=admin_headers,
+        json={"resolution": "Checked and resolved", "score_delta": 0},
+    )
+    assert resolved.status_code == 200, resolved.text
+    assert resolved.json()["status"] == "resolved"
+
+    logs = client.get("/api/v1/admin/logs", headers=admin_headers)
+    assert logs.status_code == 200, logs.text
+    actions = {item["action"] for item in logs.json()["items"]}
+    assert {"verification_approve", "listing_feature", "listing_offline", "listing_restore", "user_disable", "user_enable", "category_create", "category_update", "report_resolve"}.issubset(actions)

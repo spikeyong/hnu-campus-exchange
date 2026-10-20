@@ -30,9 +30,11 @@ class User(Base):
     verification_method: Mapped[str] = mapped_column(String(20), default="none")
     credit_score: Mapped[int] = mapped_column(Integer, default=100)
     status: Mapped[str] = mapped_column(String(20), default="active")
+    status_reason: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    status_updated_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
 
-    listings: Mapped[list["Listing"]] = relationship(back_populates="owner")
+    listings: Mapped[list["Listing"]] = relationship(back_populates="owner", foreign_keys="Listing.owner_id")
 
     @property
     def student_no_masked(self) -> str | None:
@@ -117,6 +119,7 @@ class StudentVerification(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
 
     user: Mapped[User] = relationship(foreign_keys=[user_id])
+    reviewer: Mapped[User | None] = relationship(foreign_keys=[reviewer_id])
 
 
 class Category(Base):
@@ -126,6 +129,7 @@ class Category(Base):
     name: Mapped[str] = mapped_column(String(80), unique=True)
     listing_type: Mapped[str] = mapped_column(String(20), default="both")
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    sort_order: Mapped[int] = mapped_column(Integer, default=0)
 
 
 class Listing(Base):
@@ -145,10 +149,17 @@ class Listing(Base):
     condition_level: Mapped[str | None] = mapped_column(String(40), nullable=True)
     expected_exchange: Mapped[str | None] = mapped_column(String(200), nullable=True)
     status: Mapped[str] = mapped_column(String(20), default="published", index=True)
+    status_reason: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    is_featured: Mapped[bool] = mapped_column(Boolean, default=False, index=True)
+    featured_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    featured_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    featured_reason: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    moderated_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    moderated_by: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), index=True)
     updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now())
 
-    owner: Mapped[User] = relationship(back_populates="listings")
+    owner: Mapped[User] = relationship(back_populates="listings", foreign_keys=[owner_id])
     category: Mapped[Category] = relationship()
     images: Mapped[list["ListingImage"]] = relationship(back_populates="listing", cascade="all, delete-orphan", order_by="ListingImage.sort_order")
 
@@ -239,6 +250,7 @@ class Report(Base):
     status: Mapped[str] = mapped_column(String(20), default="pending", index=True)
     resolution: Mapped[str | None] = mapped_column(Text, nullable=True)
     handler_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
+    handled_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
 
 
@@ -253,3 +265,18 @@ class CreditEvent(Base):
     reason: Mapped[str] = mapped_column(String(255))
     operator_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+
+
+class AdminActionLog(Base):
+    __tablename__ = "admin_action_logs"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    admin_id: Mapped[int] = mapped_column(ForeignKey("users.id"), index=True)
+    action: Mapped[str] = mapped_column(String(50), index=True)
+    target_type: Mapped[str] = mapped_column(String(30), index=True)
+    target_id: Mapped[int | None] = mapped_column(Integer, nullable=True, index=True)
+    summary: Mapped[str] = mapped_column(String(500))
+    detail: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), index=True)
+
+    admin: Mapped[User] = relationship(foreign_keys=[admin_id])

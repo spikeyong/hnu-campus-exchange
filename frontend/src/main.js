@@ -6,5 +6,6 @@ import './plaza-theme.css'
 import './plaza-watercolor.css'
 import './watercolor-theme.css'
 import './engagement-theme.css'
+import './personalization.css'
 
 createApp(App).mount('#app')

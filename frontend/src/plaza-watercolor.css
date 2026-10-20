@@ -88,7 +88,7 @@
 .plaza-hero {
   background:
     linear-gradient(104deg, rgba(255, 251, 242, 0.97) 0%, rgba(255, 251, 242, 0.94) 31%, rgba(255, 251, 242, 0.77) 52%, rgba(255, 251, 242, 0.36) 73%, rgba(255, 251, 242, 0.08) 100%),
-    url('/exchange/campus-background.webp') center 47% / cover no-repeat,
+    url('/exchange/scenes/hero/scene-lawn.jpg') center 47% / cover no-repeat,
     var(--p-paper);
   color: var(--p-ink);
   box-shadow: 0 26px 70px rgba(63, 110, 120, 0.16);
@@ -382,7 +382,7 @@
   .plaza-hero {
     background:
       linear-gradient(180deg, rgba(255, 251, 242, 0.96) 0%, rgba(255, 251, 242, 0.9) 36%, rgba(255, 251, 242, 0.63) 62%, rgba(255, 251, 242, 0.88) 86%, rgba(255, 251, 242, 0.96) 100%),
-      url('/exchange/campus-background.webp') center 62% / cover no-repeat,
+      url('/exchange/scenes/hero/scene-lawn.jpg') center 62% / cover no-repeat,
       var(--p-paper);
   }
 }

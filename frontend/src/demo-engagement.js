@@ -23,7 +23,7 @@ export const demoNotifications = [
     icon: 'clock',
     title: '有一笔交易等待你确认协议',
     summary: '周予安接受了你的请求，请在 24 小时内确认。',
-    content: '周予安接受了你在《Python 作业思路梳理》下发出的请求，并提出了新的交付时间：本周六 15:00，图书馆北门。请在 24 小时内确认协议；如果时间不合适，可以先在交易消息中协商。',
+    content: '周予安接受了你在《Python 作业思路梳理》下发出的请求，并提出了新的交付时间：明天 15:00，图书馆北门。请在 24 小时内确认协议；如果时间不合适，可以先在交易消息中协商。',
     time: '今天 09:48',
     urgent: true,
     readByDefault: false,
@@ -227,7 +227,7 @@ export const demoTransactionSeed = {
   status: 'pending_initiator',
   agreed_price: 25,
   proposed_price: 25,
-  proposed_time: '周六 15:00',
+  proposed_time: '明天 15:00',
   proposed_location: '海甸校区 · 图书馆北门',
   request_note: '想请学长帮我看一下作业里的递归部分，不代写，只讲思路。',
   demo_payment_status: 'unpaid',
@@ -235,7 +235,7 @@ export const demoTransactionSeed = {
 }
 
 export const demoTransactionMessages = [
-  { id: 'demo-msg-1', sender_id: 'demo-user-zhou', sender_name: '周予安', content: '周六下午三点图书馆北门可以吗？', created_at: '2026-10-19T09:46:00+08:00' },
+  { id: 'demo-msg-1', sender_id: 'demo-user-zhou', sender_name: '周予安', content: '明天下午三点图书馆北门可以吗？', created_at: '2026-10-19T09:46:00+08:00' },
   { id: 'demo-msg-2', sender_id: 'me', sender_name: '我', content: '可以的，我会提前十分钟到。', created_at: '2026-10-19T09:48:00+08:00' },
 ]
 
